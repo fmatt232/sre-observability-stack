@@ -1,0 +1,11 @@
+groups:
+- name: sre-lab
+  rules:
+  - alert: PrometheusTargetDown
+    expr: up == 0
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Prometheus target is down"
+      description: "A monitored target has been unavailable for more than two minutes."
